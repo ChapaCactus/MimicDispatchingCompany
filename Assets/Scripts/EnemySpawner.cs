@@ -9,18 +9,19 @@ namespace CCG
 {
     public class EnemySpawner
     {
-        public EnemySpawner(List<Vector3> spawnPoints, float spawnSpan = 1)
+        public EnemySpawner(List<Vector3> spawnPoints, Frame parent)
         {
             isRunning = false;
 
             this.spawnPoints = spawnPoints;
-            this.spawnSpan = spawnSpan;
+            this.parent = parent;
         }
 
         #region properties
         public bool isRunning { get; private set; }
 
-        public List<Vector3> spawnPoints { get; private set; } = new List<Vector3>();
+        private List<Vector3> spawnPoints { get; set; } = new List<Vector3>();
+        private Frame parent { get; set; }
 
         private float spawnTimer { get; set; }
         private float spawnSpan { get; set; }
@@ -40,11 +41,12 @@ namespace CCG
             }
         }
 
-        public void Run()
+        public void Run(float spawnSpan = 3)
         {
             if (isRunning)
                 return;
             isRunning = true;
+            this.spawnSpan = spawnSpan;
 
             ResetTimer();
         }
@@ -66,6 +68,12 @@ namespace CCG
         private void GenerateEnemy()
         {
             Debug.Log("敵生成");
+            Vector3 spawnPos = spawnPoints.OrderBy(_ => Guid.NewGuid()).First();
+            Enemy.Create(parent.transform, enemy =>
+            {
+                enemy.transform.position = spawnPos;
+                enemy.Setup(null, parent);
+            });
         }
         #endregion
     }

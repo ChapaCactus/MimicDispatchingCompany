@@ -33,7 +33,7 @@ namespace CCG
             Assert.IsNotNull(spawnPoints);
 
             var vectorPoints = spawnPoints.Select(tf => tf.position).ToList();
-            enemySpawner = new EnemySpawner(vectorPoints);
+            enemySpawner = new EnemySpawner(vectorPoints, this);
         }
 
         private void Update()
@@ -43,6 +43,11 @@ namespace CCG
         #endregion
 
         #region public methods
+        public Mimic GetMimic()
+        {
+            return mimic;
+        }
+
         /// <summary>
         /// ミミック挿入
         /// </summary>
