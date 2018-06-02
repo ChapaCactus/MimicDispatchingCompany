@@ -9,15 +9,21 @@ namespace CCG
     {
         #region properties
         private CharacterData data { get; set; }
+        private EnemyView view { get; set; }
 
         private Frame parentFrame { get; set; }
         private Mimic target { get; set; }
         #endregion
 
+        #region variables
+        [SerializeField]
+        private SpriteRenderer mainRenderer;
+        #endregion
+
         #region unity callbacks
         private void Update()
         {
-            if(target != null)
+            if (target != null)
             {
                 Walk();
             }
@@ -36,6 +42,9 @@ namespace CCG
         public void Setup(CharacterData data, Frame parentFrame)
         {
             this.data = data;
+
+            view = new EnemyView(mainRenderer);
+            view.SetMaskInteraction(SpriteMaskInteraction.VisibleInsideMask);
 
             this.parentFrame = parentFrame;
             target = parentFrame.GetMimic();
