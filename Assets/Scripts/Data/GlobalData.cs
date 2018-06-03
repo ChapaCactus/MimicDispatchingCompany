@@ -13,10 +13,12 @@ namespace CCG
         #endregion
 
         #region public methods
-        public static void AddGold(int add)
+        public static void AddGold(int add, Action<int> onUpdateCurrentGold)
         {
             totalGold += add;
             currentGold += add;
+
+            onUpdateCurrentGold(currentGold);
         }
         #endregion
     }
