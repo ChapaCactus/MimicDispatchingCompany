@@ -67,6 +67,14 @@ namespace CCG
 
         private void OnCollisionMimic(Mimic mimic)
         {
+            var goldSetting = new GoldObjectSetting();
+            goldSetting.gold = 1;
+            goldSetting.autoGetTimer = 3;
+
+            GoldObject.Create(parentFrame.transform, goldSetting, goldObject =>
+            {
+            });
+
             Destroy(gameObject);
         }
         #endregion

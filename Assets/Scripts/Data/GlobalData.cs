@@ -19,6 +19,8 @@ namespace CCG
             currentGold += add;
 
             onUpdateCurrentGold(currentGold);
+
+            Debug.Log($"Updated CurrentGold: {currentGold}G, TotalGold: {totalGold}G.");
         }
         #endregion
     }
