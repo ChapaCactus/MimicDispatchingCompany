@@ -68,7 +68,9 @@ namespace CCG
 
             public void Damage(int damage)
             {
+                Debug.Log($"before health: {health}");
                 health -= Mathf.Abs(damage);
+                Debug.Log($"after health: {health}");
                 if (health < 0)
                     health = 0;
             }
@@ -127,8 +129,18 @@ namespace CCG
         {
             var name = new CharaName("名前", "二つ名");
             var level = new Level(1, 0, 0);
-            var health = new Health(10, 10);
-            var power = new Power(1);
+            var health = new Health(100, 100);
+            var power = new Power(4);
+            var defense = new Defense(1);
+            return new CharacterData(name, level, health, power, defense);
+        }
+
+        public static CharacterData CreateEnemyDummyData()
+        {
+            var name = new CharaName("敵", "二つ名");
+            var level = new Level(1, 0, 0);
+            var health = new Health(5, 5);
+            var power = new Power(3);
             var defense = new Defense(1);
             return new CharacterData(name, level, health, power, defense);
         }

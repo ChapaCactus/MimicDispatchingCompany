@@ -237,7 +237,7 @@ Transform:
   m_Children:
   - {fileID: 1625516491}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &547383187
 MonoBehaviour:
@@ -375,6 +375,46 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &931422625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 931422627}
+  - component: {fileID: 931422626}
+  m_Layer: 0
+  m_Name: BattleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!114 &931422626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 931422625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9433b6ee439407686fda7ed564bc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &931422627
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 931422625}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &983985451
 GameObject:
@@ -520,13 +560,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1227336962}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.54, z: 0}
+  m_LocalPosition: {x: 0, y: 1.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1306250447}
   - {fileID: 1924803178}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &1227336964
 SortingGroup:
@@ -757,7 +797,7 @@ MonoBehaviour:
   openReferences: 0
   openPrefabs: 0
   idRef:
-    _Keys: abb3f7a0330f827dd7175ebf5df4811c425571ffc5c545636005fd3b7f5bd64ae7c362c0651f397418cc9175166c6b517674e4518d54a5134113d79a91c1b623e503e86ea945853390b13bf5897b426d1d4f145b3d94393d410db62a4405e24a433ec96fc3eb430e71ebcb141a96fa43aabb83bd52a51a79c3d9d16471a41175310f4db54e2c56099222cc29604d575620e5a6cb28b5fb4df9f0731fa985d87edf6b9bd7bceddf354493ba2cc677be5bebcee361a118ce4fabb3911dbe8b7a474ed44bf42df8846ac201f34b04ce7e53666346e1e183ee38b1426187af71fa50324fd834807937582f38b787e456c55c65519c94624a4d529c79ea53733b3f1c08bdec000d8fb27d066590bd7f401323dffcec291a9f77387b22dbf0a8c1f6563133b952b14a1b03325cb06ec4e95833a58c69fa5c33f659b015d9d6fd995e1ed07305ce42cd9731d8fe0821801c0e70a40da55b27bfb46100a386d500ef013d
+    _Keys: abb3f7a0330f827dd7175ebf5df4811c425571ffc5c545636005fd3b7f5bd64ae7c362c0651f397418cc9175166c6b517674e4518d54a5134113d79a91c1b623e503e86ea945853390b13bf5897b426d1d4f145b3d94393d410db62a4405e24a433ec96fc3eb430e71ebcb141a96fa43aabb83bd52a51a79c3d9d16471a41175310f4db54e2c56099222cc29604d575620e5a6cb28b5fb4df9f0731fa985d87edf6b9bd7bceddf354493ba2cc677be5bebcee361a118ce4fabb3911dbe8b7a474ed44bf42df8846ac201f34b04ce7e53666346e1e183ee38b1426187af71fa50324fd834807937582f38b787e456c55c65519c94624a4d529c79ea53733b3f1c08bdec000d8fb27d066590bd7f401323dffcec291a9f77387b22dbf0a8c1f6563133b952b14a1b03325cb06ec4e95833a58c69fa5c33f659b015d9d6fd995e1ed07305ce42cd9731d8fe0821801c0e70a40da55b27bfb46100a386d500ef013d4cecf32787f2cf3f5b201ccb7efe4f78306d123c0e96cf1adf46ec1d8a5e70009f4a50469ff4d95c0ac733092f73b863872f4c6a39488f491dd9474106b1b5466fe29437b16ae73c93b645d5c9d9495301af5b465525c518d99a29c5ac985645838586eef710ea0ee9760110729bec43700bbe4af203646b5853a2e8bede6f04a1ffadbbada5a4116595d033d929753e521aca47a95fc779170dbab54d2c3238e605b07248a7f135985350772c68bb7fc9e096a313275a403833a59feaefc46dc8084dd37803f5060d00e0fcaf3fa57e37c613936a71da0ea00e5683b36edf7717beae231ae70634296268edb9a16e0772d9294ffda827572d3e72875979b962df96ec911136664f412196f8f612aa41
     _Values:
     - {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
     - {fileID: 519420028}
@@ -803,6 +843,40 @@ MonoBehaviour:
     - {fileID: 1924803177}
     - {fileID: 1924803178}
     - {fileID: 547383185}
+    - {fileID: 983985453}
+    - {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+    - {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+    - {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+    - {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+    - {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+    - {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+    - {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+    - {fileID: 10906, guid: 0000000000000000f000000000000000, type: 0}
+    - {fileID: 1837337642}
+    - {fileID: 559107469}
+    - {fileID: 559107467}
+    - {fileID: 2066895408}
+    - {fileID: 1593748339}
+    - {fileID: 1593748338}
+    - {fileID: 559107468}
+    - {fileID: 1837337643}
+    - {fileID: 2066895412}
+    - {fileID: 559107466}
+    - {fileID: 1837337645}
+    - {fileID: 11500000, guid: 211a7a02a9ba74d109aa2c5f442db09a, type: 3}
+    - {fileID: 1593748340}
+    - {fileID: 1837337644}
+    - {fileID: 2066895410}
+    - {fileID: 2066895413}
+    - {fileID: 1837337646}
+    - {fileID: 1593748337}
+    - {fileID: 11500000, guid: 20777575390514bbd9335439f503bacf, type: 3}
+    - {fileID: 2066895409}
+    - {fileID: 2066895411}
+    - {fileID: 983985451}
+    - {fileID: 983985454}
+    - {fileID: 983985452}
   prefabs: []
 --- !u!114 &1365284168
 MonoBehaviour:
@@ -1181,7 +1255,7 @@ RectTransform:
   - {fileID: 983985454}
   - {fileID: 1837337643}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

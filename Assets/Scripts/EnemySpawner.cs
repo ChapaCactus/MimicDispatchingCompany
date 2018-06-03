@@ -72,7 +72,8 @@ namespace CCG
             Enemy.Create(parent.transform, enemy =>
             {
                 enemy.transform.position = spawnPos;
-                enemy.Setup(null, parent);
+                var data = CharacterData.CreateEnemyDummyData();
+                enemy.Setup(data, parent);
             });
         }
         #endregion

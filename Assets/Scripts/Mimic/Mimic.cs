@@ -9,7 +9,7 @@ using HedgehogTeam.EasyTouch;
 namespace CCG
 {
     [RequireComponent(typeof(QuickDrag))]
-    public class Mimic : MonoBehaviour
+    public class Mimic : MonoBehaviour, IBattle
     {
         #region enums
         public enum State
@@ -40,8 +40,6 @@ namespace CCG
 
         private CharacterData data { get; set; }
         private MimicView view { get; set; }
-
-        private Action onDead { get; set; }
         #endregion
 
         #region variables
@@ -68,11 +66,6 @@ namespace CCG
             EasyTouch.On_DragEnd += OnDragEnd;
         }
 
-        public void SetOnDeadCallback(Action onDead)
-        {
-            this.onDead = onDead;
-        }
-
         /// <summary>
         /// フレームに入ったとき
         /// </summary>
@@ -95,17 +88,24 @@ namespace CCG
         }
 
         /// <summary>
+        /// 攻撃
+        /// </summary>
+        public void Attack(IBattle target)
+        {
+            target.Damage(1);
+        }
+
+        /// <summary>
         /// ダメージ
         /// </summary>
         public void Damage(int damage)
         {
-            if (data == null)
-                return;
-
             data.health.Damage(damage);
+        }
 
-            if (data.health.IsDead)
-                onDead();
+        public void Kill()
+        {
+            Debug.Log("Mimic死...");
         }
 
         /// <summary>

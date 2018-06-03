@@ -5,9 +5,11 @@ using UnityEngine.Assertions;
 
 namespace CCG
 {
-    public class Enemy : MonoBehaviour
+    public class Enemy : MonoBehaviour, IBattle
     {
         #region properties
+        public int health { get { return data.health.health; } }
+
         private CharacterData data { get; set; }
         private EnemyView view { get; set; }
 
@@ -23,7 +25,7 @@ namespace CCG
         #region unity callbacks
         private void Update()
         {
-            if (target != null)
+            if (target != null && !BattleManager.I.IsBattleRunning)
             {
                 Walk();
             }
@@ -49,6 +51,35 @@ namespace CCG
             this.parentFrame = parentFrame;
             target = parentFrame.GetMimic();
         }
+
+        /// <summary>
+        /// 攻撃
+        /// </summary>
+        public void Attack(IBattle target)
+        {
+            target.Damage(1);
+        }
+
+        /// <summary>
+        /// ダメージ
+        /// </summary>
+        public void Damage(int damage)
+        {
+            data.health.Damage(damage);
+        }
+
+        public void Kill()
+        {
+            var goldSetting = new GoldObjectSetting();
+            goldSetting.gold = 1;
+            goldSetting.autoGetTimer = 3;
+
+            GoldObject.Create(parentFrame.transform, goldSetting, goldObject =>
+            {
+            });
+
+            Destroy(gameObject);
+        }
         #endregion
 
         #region private methods
@@ -67,15 +98,9 @@ namespace CCG
 
         private void OnCollisionMimic(Mimic mimic)
         {
-            var goldSetting = new GoldObjectSetting();
-            goldSetting.gold = 1;
-            goldSetting.autoGetTimer = 3;
-
-            GoldObject.Create(parentFrame.transform, goldSetting, goldObject =>
-            {
-            });
-
-            Destroy(gameObject);
+            Debug.Log("Start Battle...");
+            Battle battle = Battle.Create(mimic, this);
+            BattleManager.I.AddBattleQueue(battle);
         }
         #endregion
     }
