@@ -92,7 +92,7 @@ namespace CCG
         /// </summary>
         public void Attack(IBattle target)
         {
-            target.Damage(1);
+            target.Damage(data.power.GetTotalPower());
         }
 
         /// <summary>

@@ -85,7 +85,7 @@ namespace CCG
         #region private methods
         private void Walk()
         {
-            transform.position += Vector3.up;
+            transform.position += Vector3.up * 4;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

@@ -17,7 +17,7 @@ namespace CCG
             this.defense = defense;
         }
 
-        public struct CharaName
+        public class CharaName
         {
             public CharaName(string charaName, string title)
             {
@@ -31,7 +31,7 @@ namespace CCG
             public string title { get; private set; }
         }
 
-        public struct Level
+        public class Level
         {
             public Level(int level, int exp, int next)
             {
@@ -48,7 +48,7 @@ namespace CCG
             public int next { get; private set; }
         }
 
-        public struct Health
+        public class Health
         {
             public Health(int health, int maxHealth)
             {
@@ -68,9 +68,8 @@ namespace CCG
 
             public void Damage(int damage)
             {
-                Debug.Log($"before health: {health}");
                 health -= Mathf.Abs(damage);
-                Debug.Log($"after health: {health}");
+
                 if (health < 0)
                     health = 0;
             }
@@ -88,7 +87,7 @@ namespace CCG
             }
         }
 
-        public struct Power
+        public class Power
         {
             public Power(int basePower)
             {
@@ -103,7 +102,7 @@ namespace CCG
             }
         }
 
-        public struct Defense
+        public class Defense
         {
             public Defense(int baseDefense)
             {
