@@ -157,7 +157,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 640
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -274,7 +274,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.56, y: 3.28}
+  m_Size: {x: 250, y: 300}
   m_EdgeRadius: 0
 --- !u!114 &547383189
 MonoBehaviour:
@@ -626,7 +626,7 @@ SpriteRenderer:
   m_SortingLayerID: -389631327
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 516666aee2b67427a9f433cfe28fdac7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc6295385be1e4cd5b2d5ec8c79ac803, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -652,14 +652,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.3333335, y: 5.733333}
+    oldSize: {x: 500, y: 300}
     newSize: {x: 8, y: 8.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.3333335, y: 5.733333}
+  m_Size: {x: 500, y: 300}
   m_EdgeRadius: 0
 --- !u!1 &1306250446
 GameObject:
@@ -725,7 +725,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d7b61ddf91902469ba8eadbc45bd23c2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c11fa81602c3b45fe8ce121fc62044d6, type: 3}
   m_MaskAlphaCutoff: 0.2
   m_FrontSortingLayerID: 0
   m_BackSortingLayerID: 0
@@ -797,7 +797,7 @@ MonoBehaviour:
   openReferences: 0
   openPrefabs: 0
   idRef:
-    _Keys: abb3f7a0330f827dd7175ebf5df4811c425571ffc5c545636005fd3b7f5bd64ae7c362c0651f397418cc9175166c6b517674e4518d54a5134113d79a91c1b623e503e86ea945853390b13bf5897b426d1d4f145b3d94393d410db62a4405e24a433ec96fc3eb430e71ebcb141a96fa43aabb83bd52a51a79c3d9d16471a41175310f4db54e2c56099222cc29604d575620e5a6cb28b5fb4df9f0731fa985d87edf6b9bd7bceddf354493ba2cc677be5bebcee361a118ce4fabb3911dbe8b7a474ed44bf42df8846ac201f34b04ce7e53666346e1e183ee38b1426187af71fa50324fd834807937582f38b787e456c55c65519c94624a4d529c79ea53733b3f1c08bdec000d8fb27d066590bd7f401323dffcec291a9f77387b22dbf0a8c1f6563133b952b14a1b03325cb06ec4e95833a58c69fa5c33f659b015d9d6fd995e1ed07305ce42cd9731d8fe0821801c0e70a40da55b27bfb46100a386d500ef013d4cecf32787f2cf3f5b201ccb7efe4f78306d123c0e96cf1adf46ec1d8a5e70009f4a50469ff4d95c0ac733092f73b863872f4c6a39488f491dd9474106b1b5466fe29437b16ae73c93b645d5c9d9495301af5b465525c518d99a29c5ac985645838586eef710ea0ee9760110729bec43700bbe4af203646b5853a2e8bede6f04a1ffadbbada5a4116595d033d929753e521aca47a95fc779170dbab54d2c3238e605b07248a7f135985350772c68bb7fc9e096a313275a403833a59feaefc46dc8084dd37803f5060d00e0fcaf3fa57e37c613936a71da0ea00e5683b36edf7717beae231ae70634296268edb9a16e0772d9294ffda827572d3e72875979b962df96ec911136664f412196f8f612aa41
+    _Keys: abb3f7a0330f827dd7175ebf5df4811c425571ffc5c545636005fd3b7f5bd64ae7c362c0651f397418cc9175166c6b517674e4518d54a5134113d79a91c1b623e503e86ea945853390b13bf5897b426d1d4f145b3d94393d410db62a4405e24a433ec96fc3eb430e71ebcb141a96fa43aabb83bd52a51a79c3d9d16471a41175310f4db54e2c56099222cc29604d575620e5a6cb28b5fb4df9f0731fa985d87edf6b9bd7bceddf354493ba2cc677be5bebcee361a118ce4fabb3911dbe8b7a474ed44bf42df8846ac201f34b04ce7e53666346e1e183ee38b1426187af71fa50324fd834807937582f38b787e456c55c65519c94624a4d529c79ea53733b3f1c08bdec000d8fb27d066590bd7f401323dffcec291a9f77387b22dbf0a8c1f6563133b952b14a1b03325cb06ec4e95833a58c69fa5c33f659b015d9d6fd995e1ed07305ce42cd9731d8fe0821801c0e70a40da55b27bfb46100a386d500ef013d4cecf32787f2cf3f5b201ccb7efe4f78306d123c0e96cf1adf46ec1d8a5e70009f4a50469ff4d95c0ac733092f73b863872f4c6a39488f491dd9474106b1b5466fe29437b16ae73c93b645d5c9d9495301af5b465525c518d99a29c5ac985645838586eef710ea0ee9760110729bec43700bbe4af203646b5853a2e8bede6f04a1ffadbbada5a4116595d033d929753e521aca47a95fc779170dbab54d2c3238e605b07248a7f135985350772c68bb7fc9e096a313275a403833a59feaefc46dc8084dd37803f5060d00e0fcaf3fa57e37c613936a71da0ea00e5683b36edf7717beae231ae70634296268edb9a16e0772d9294ffda827572d3e72875979b962df96ec911136664f412196f8f612aa4140463319b850771ce0a8ca7c885a4d7e4ab71624242f276693a357ca46b04d64a1863ba9e4665462754700050041fa397bb334978d7bc526469f6b80bd650063
     _Values:
     - {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
     - {fileID: 519420028}
@@ -877,6 +877,14 @@ MonoBehaviour:
     - {fileID: 983985451}
     - {fileID: 983985454}
     - {fileID: 983985452}
+    - {fileID: 931422625}
+    - {fileID: 11500000, guid: cd9433b6ee439407686fda7ed564bc4d, type: 3}
+    - {fileID: 931422627}
+    - {fileID: 931422626}
+    - {fileID: 2800000, guid: c11fa81602c3b45fe8ce121fc62044d6, type: 3}
+    - {fileID: 2800000, guid: dc6295385be1e4cd5b2d5ec8c79ac803, type: 3}
+    - {fileID: 21300000, guid: dc6295385be1e4cd5b2d5ec8c79ac803, type: 3}
+    - {fileID: 21300000, guid: c11fa81602c3b45fe8ce121fc62044d6, type: 3}
   prefabs: []
 --- !u!114 &1365284168
 MonoBehaviour:
@@ -1055,7 +1063,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
 --- !u!1 &1837337642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,7 +1168,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1924803177}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -13.3, z: 0}
+  m_LocalPosition: {x: 0, y: -292, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1227336963}
