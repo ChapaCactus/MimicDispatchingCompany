@@ -52,8 +52,7 @@ namespace CCG
             drag.onDrag.AddListener(OnDrag);
             drag.onDragEnd.AddListener(OnDragEnd);
 
-            var dummyData = CharacterData.CreateDummyData();
-            Setup(dummyData);
+            Setup(CharacterData.CreateDummyData());
         }
         #endregion
 
@@ -113,8 +112,7 @@ namespace CCG
         /// </summary>
         public void Cure(int cure)
         {
-            if (data == null)
-                return;
+            if (data == null) return;
 
             data.health.Cure(cure);
         }
@@ -124,8 +122,7 @@ namespace CCG
         /// </summary>
         public void FullCure()
         {
-            if (data == null)
-                return;
+            if (data == null) return;
 
             data.health.FullCure();
         }
@@ -149,18 +146,13 @@ namespace CCG
         #endregion
 
         #region private methods
-        private void OnDestroy()
-        {
-        }
-
         private IInsertable CheckIsPutSuccess(Gesture gesture)
         {
             Vector2 worldPoint = Camera.main.ScreenToWorldPoint(gesture.position);
             LayerMask mask = LayerMask.GetMask("IInsertable");
             RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, Mathf.Infinity, mask);
 
-            if (!hit.collider)
-                return null;
+            if (!hit.collider) return null;
 
             return hit.collider.GetComponent<IInsertable>();
         }
