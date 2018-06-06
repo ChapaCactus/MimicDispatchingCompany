@@ -40,14 +40,18 @@ namespace CCG
 
         private CharacterData data { get; set; }
         private MimicView view { get; set; }
-        #endregion
 
-        #region variables
+        private QuickDrag drag { get; set; }
         #endregion
 
         #region unity callbacks
         private void Awake()
         {
+            drag = GetComponent<QuickDrag>();
+            drag.onDragStart.AddListener(OnDragStart);
+            drag.onDrag.AddListener(OnDrag);
+            drag.onDragEnd.AddListener(OnDragEnd);
+
             var dummyData = CharacterData.CreateDummyData();
             Setup(dummyData);
         }
@@ -60,10 +64,6 @@ namespace CCG
 
             view = new MimicView(characterRenderer);
             view.SetMaskInteraction(SpriteMaskInteraction.VisibleOutsideMask);
-
-            EasyTouch.On_DragStart += OnDragStart;
-            EasyTouch.On_Drag += OnDrag;
-            EasyTouch.On_DragEnd += OnDragEnd;
         }
 
         /// <summary>
@@ -129,31 +129,28 @@ namespace CCG
 
             data.health.FullCure();
         }
+
+        public void OnDragStart(Gesture gesture)
+        {
+            Debug.Log($"OnDragStart instanceID: {GetInstanceID()}");
+        }
+
+        public void OnDrag(Gesture gesture)
+        {
+        }
+
+        public void OnDragEnd(Gesture gesture)
+        {
+            Debug.Log($"OnDragEnd instanceID: {GetInstanceID()}");
+
+            IInsertable insertable = CheckIsPutSuccess(gesture);
+            insertable?.InsertMimic(this);
+        }
         #endregion
 
         #region private methods
         private void OnDestroy()
         {
-            EasyTouch.On_DragStart -= OnDragStart;
-            EasyTouch.On_Drag -= OnDrag;
-            EasyTouch.On_DragEnd -= OnDragEnd;
-        }
-
-        private void OnDragStart(Gesture gesture)
-        {
-            Debug.Log("OnDragStart");
-        }
-
-        private void OnDrag(Gesture gesture)
-        {
-        }
-
-        private void OnDragEnd(Gesture gesture)
-        {
-            Debug.Log("OnDragEnd");
-
-            IInsertable insertable = CheckIsPutSuccess(gesture);
-            insertable?.InsertMimic(this);
         }
 
         private IInsertable CheckIsPutSuccess(Gesture gesture)
