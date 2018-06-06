@@ -11,13 +11,20 @@ namespace CCG
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public Page(IEnumerable<Frame> frames)
+        public Page()
         {
-            this.frames = frames;
+            Init();
         }
 
         #region properties
-        public IEnumerable<Frame> frames { get; private set; }
+        public List<Frame> frames { get; set; }
+        #endregion
+
+        #region public methods
+        public void Init()
+        {
+            frames = new List<Frame>();
+        }
         #endregion
     }
 }
