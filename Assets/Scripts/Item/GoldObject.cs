@@ -4,11 +4,18 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 using HedgehogTeam.EasyTouch;
+using DG.Tweening;
+using DarkTonic.MasterAudio;
 
 namespace CCG
 {
     public class GoldObject : MonoBehaviour
     {
+        #region variables
+        [SerializeField]
+        private SpriteRenderer spriteRenderer;
+        #endregion
+
         #region properties
         public int gold { get; private set; }
 
@@ -24,7 +31,6 @@ namespace CCG
                 if (autoGetTimer <= 0)
                 {
                     AddGold();
-                    Destroy(gameObject);
                 }
             }
         }
@@ -79,9 +85,15 @@ namespace CCG
             GlobalData.AddGold(gold, current =>
             {
                 PageSceneUIManager.I.GetStatusBar().UpdateGoldText(current);
+                MasterAudio.PlaySound("8BIT_RETRO_Coin_Collect_Two_Note_Bright_Twinkle_mono");
             });
 
-            Destroy(gameObject);
+            var duration = 0.5f;
+            var seq = DOTween.Sequence();
+            seq.Append(transform.DOLocalMoveY(50, duration)
+                       .SetRelative());
+            seq.Join(spriteRenderer.DOFade(0, duration));
+            seq.OnComplete(() => Destroy(gameObject));
         }
         #endregion
     }
