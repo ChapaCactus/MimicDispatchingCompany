@@ -76,9 +76,13 @@ namespace CCG
 
             public void Cure(int cure)
             {
+                var before = health;
+
                 health += Mathf.Abs(cure);
                 if (health > maxHealth)
                     health = maxHealth;
+
+                Debug.Log($"Cured [{before} -> {health}]");
             }
 
             public void FullCure()
