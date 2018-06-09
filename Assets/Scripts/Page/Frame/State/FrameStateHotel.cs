@@ -21,11 +21,17 @@ namespace CCG
         /// </summary>
         public FrameStateHotel()
         {
+            timer = new Timer();
+
             OnInitialize();
         }
 
-        public override void OnInsertMimic(Mimic mimic)
+        protected override void OnInsertMimic()
         {
+            StartTimer(1f, true, () =>
+            {
+                mimic.FullCure();
+            });
         }
         #endregion
 

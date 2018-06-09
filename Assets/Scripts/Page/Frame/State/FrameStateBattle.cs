@@ -27,7 +27,7 @@ namespace CCG
             enemySpawner = new EnemySpawner(frame, spawnPoints);
         }
 
-        public override void OnInsertMimic(Mimic mimic)
+        protected override void OnInsertMimic()
         {
             enemySpawner.Run();
         }

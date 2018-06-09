@@ -38,9 +38,12 @@ namespace CCG
             var vectorPoints = spawnPoints.Select(tf => tf.position).ToList();
 
             states = new Dictionary<FrameType, FrameStateBase>();
-            states.Add(FrameType.Battle
-                       , new FrameStateBattle(this, spawnPoints));
+            //states.Add(FrameType.Battle
+                       //, new FrameStateBattle(this, spawnPoints));
             states.Add(FrameType.Hotel, new FrameStateHotel());
+
+            // test
+            currentStateType = FrameType.Hotel;
         }
 
         private void Update()
@@ -71,7 +74,7 @@ namespace CCG
 
             mimic.Invoke();
 
-            currentState.OnInsertMimic(mimic);
+            currentState.InsertMimic(mimic);
         }
         #endregion
 

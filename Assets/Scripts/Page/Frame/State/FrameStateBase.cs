@@ -7,12 +7,11 @@ namespace CCG
 {
     public abstract class FrameStateBase : ScriptableObject
     {
-        #region variables
-        protected Timer timer { get; set; }
-        #endregion
-
         #region properties
         public abstract Frame.FrameType type { get; }
+
+        protected Timer timer { get; set; }
+        protected Mimic mimic { get; set; }
         #endregion
 
         #region public methods
@@ -26,10 +25,22 @@ namespace CCG
             timer.Update(deltaTime);
         }
 
-        public abstract void OnInsertMimic(Mimic mimic);
+        public void InsertMimic(Mimic mimic)
+        {
+            this.mimic = mimic;
+
+            OnInsertMimic();
+        }
         #endregion
 
         #region private methods
+        protected abstract void OnInsertMimic();
+
+        protected void StartTimer(float start, bool isLoop, Action onEndTimer)
+        {
+            timer.StartTimer(start, isLoop, onEndTimer);
+        }
+
         protected virtual void OnInitialize()
         {
         }

@@ -11,14 +11,19 @@ namespace CCG
         public bool isRunning { get; private set; }
 
         private float timer { get; set; }
+        private float duration { get; set; }
+        private bool isLoop { get; set; }
         private Action onEndTimer { get; set; }
         #endregion
 
         #region public methods
-        public void StartTimer(float start)
+        public void StartTimer(float duration, bool isLoop, Action onEndTimer)
         {
-            timer = start;
-            isRunning = true;
+            this.duration = duration;
+            this.timer = duration;
+            this.isLoop = isLoop;
+            this.onEndTimer = onEndTimer;
+            this.isRunning = true;
         }
 
         public void Update(float deltaTime)
@@ -28,8 +33,17 @@ namespace CCG
             timer -= deltaTime;
             if (timer <= 0)
             {
-                isRunning = false;
+                Debug.Log("onEndTimer");
                 onEndTimer.SafeCall();
+
+                if (isLoop)
+                {
+                    StartTimer(duration, isLoop, onEndTimer);
+                }
+                else
+                {
+                    isRunning = false;
+                }
             }
         }
         #endregion
