@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 using UnityEngine.UI;
+using DG.Tweening;
 
 namespace CCG
 {
@@ -18,6 +19,11 @@ namespace CCG
         public void UpdateGoldText(int gold)
         {
             goldText.text = $"{gold}G";
+
+            goldText.transform.localScale = Vector3.one;
+            goldText.transform.DOScale(1.5f, 0.3f)
+                    .SetEase(Ease.OutExpo)
+                    .SetLoops(2, LoopType.Yoyo);
         }
         #endregion
     }
