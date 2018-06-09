@@ -79,6 +79,7 @@ namespace CCG
 
             GoldObject.Create(parentFrame.transform, goldSetting, goldObject =>
             {
+                goldObject.transform.position = transform.position;
             });
 
             Destroy(gameObject);
@@ -88,7 +89,7 @@ namespace CCG
         #region private methods
         private void Walk()
         {
-            transform.position += Vector3.up * 4;
+            transform.position += Vector3.right * 4;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

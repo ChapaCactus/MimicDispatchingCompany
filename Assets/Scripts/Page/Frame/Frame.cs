@@ -20,6 +20,9 @@ namespace CCG
         #region variables
         [SerializeField]
         private FrameType currentStateType;
+
+        [SerializeField]
+        private Transform mimicPos;
         #endregion
 
         #region properties
@@ -66,10 +69,10 @@ namespace CCG
         {
             if (mimic == null)
                 return;
-
+            
             this.mimic = mimic;
-            this.mimic.transform.position = transform.position;
-            this.mimic.transform.SetParent(transform);
+            mimic.transform.position = mimicPos.position;
+            mimic.transform.SetParent(transform);
 
             Debug.Log($"mimic name: {mimic.charaName}");
 
