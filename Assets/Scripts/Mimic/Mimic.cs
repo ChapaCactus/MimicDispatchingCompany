@@ -5,6 +5,7 @@ using UnityEngine.Assertions;
 
 using DG.Tweening;
 using HedgehogTeam.EasyTouch;
+using DarkTonic.MasterAudio;
 
 namespace CCG
 {
@@ -100,6 +101,8 @@ namespace CCG
         public void Damage(int damage)
         {
             data.health.Damage(damage);
+
+            MasterAudio.PlaySound("GB_01_sfx");
         }
 
         public void Kill()

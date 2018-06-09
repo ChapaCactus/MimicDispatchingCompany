@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
+using DarkTonic.MasterAudio;
+
 namespace CCG
 {
     public class Enemy : MonoBehaviour, IBattle
@@ -66,6 +68,7 @@ namespace CCG
         public void Damage(int damage)
         {
             data.health.Damage(damage);
+            MasterAudio.PlaySound("GB_01_sfx");
         }
 
         public void Kill()
