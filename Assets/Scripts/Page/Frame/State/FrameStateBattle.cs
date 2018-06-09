@@ -31,7 +31,7 @@ namespace CCG
 
         protected override void OnInsertMimic()
         {
-            StartTimer(3, true, () =>
+            StartTimer(5, true, () =>
             {
                 enemySpawner.GenerateEnemy();
             });
