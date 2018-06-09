@@ -17,6 +17,8 @@ namespace CCG
 
         private Frame parentFrame { get; set; }
         private Mimic target { get; set; }
+
+        private float moveRad { get; set; }
         #endregion
 
         #region variables
@@ -52,6 +54,9 @@ namespace CCG
 
             this.parentFrame = parentFrame;
             target = parentFrame.GetMimic();
+            moveRad = Mathf.Atan2(
+                target.transform.position.y - transform.position.y,
+                target.transform.position.x - transform.position.x);
         }
 
         /// <summary>
@@ -80,16 +85,19 @@ namespace CCG
             GoldObject.Create(parentFrame.transform, goldSetting, goldObject =>
             {
                 goldObject.transform.position = transform.position;
+                Destroy(gameObject);
             });
-
-            Destroy(gameObject);
         }
         #endregion
 
         #region private methods
         private void Walk()
         {
-            transform.position += Vector3.right * 4;
+            var moveSpeed = 4;
+            var pos = transform.position;
+            pos.x += moveSpeed * Mathf.Cos(moveRad);
+            pos.y += moveSpeed * Mathf.Sin(moveRad);
+            transform.position = pos;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
