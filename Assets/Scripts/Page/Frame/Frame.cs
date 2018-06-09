@@ -20,11 +20,9 @@ namespace CCG
         #region properties
         private Mimic mimic { get; set; }
 
-        private List<FrameStateBase> state { get; set; }
-        private int currentStateIndex { get; set; }
-        private FrameStateBase currentState { get { return state[currentStateIndex]; } }
-
-        private EnemySpawner enemySpawner { get; set; }
+        private Dictionary<Frame.FrameType, FrameStateBase> states { get; set; }
+        private FrameType currentStateType { get; set; }
+        private FrameStateBase currentState { get { return states[currentStateType]; } }
         #endregion
 
         #region variables
@@ -38,11 +36,11 @@ namespace CCG
             Assert.IsNotNull(spawnPoints);
 
             var vectorPoints = spawnPoints.Select(tf => tf.position).ToList();
-            enemySpawner = new EnemySpawner(vectorPoints, this);
 
-            state = new List<FrameStateBase>();
-            state.Add(new FrameStateBattle());
-            state.Add(new FrameStateHotel());
+            states = new Dictionary<FrameType, FrameStateBase>();
+            states.Add(FrameType.Battle
+                       , new FrameStateBattle(this, spawnPoints));
+            states.Add(FrameType.Hotel, new FrameStateHotel());
         }
 
         private void Update()
@@ -72,7 +70,8 @@ namespace CCG
             Debug.Log($"mimic name: {mimic.charaName}");
 
             mimic.Invoke();
-            enemySpawner.Run();
+
+            currentState.OnInsertMimic(mimic);
         }
         #endregion
 

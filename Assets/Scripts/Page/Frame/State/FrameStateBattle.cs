@@ -13,12 +13,32 @@ namespace CCG
 
         #region properties
         public override Frame.FrameType type { get { return FrameStateBattle.Type; } }
+
+        private EnemySpawner enemySpawner { get; set; }
+        private Frame frame { get; set; }
         #endregion
 
         #region public methods
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        public FrameStateBattle(Frame frame, List<Transform> spawnPoints)
+        {
+            enemySpawner = new EnemySpawner(frame, spawnPoints);
+        }
+
+        public override void OnInsertMimic(Mimic mimic)
+        {
+            enemySpawner.Run();
+        }
         #endregion
 
         #region private methods
+        protected override void OnInitialize()
+        {
+            base.OnInitialize();
+        }
+
         protected override void OnStartTimer() { }
         protected override void OnEndTimer() { }
         #endregion

@@ -16,6 +16,17 @@ namespace CCG
         #endregion
 
         #region public methods
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        public FrameStateHotel()
+        {
+            OnInitialize();
+        }
+
+        public override void OnInsertMimic(Mimic mimic)
+        {
+        }
         #endregion
 
         #region private methods

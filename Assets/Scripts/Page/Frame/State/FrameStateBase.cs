@@ -25,6 +25,8 @@ namespace CCG
         {
             timer.Update(deltaTime);
         }
+
+        public abstract void OnInsertMimic(Mimic mimic);
         #endregion
 
         #region private methods

@@ -9,11 +9,12 @@ namespace CCG
 {
     public class EnemySpawner
     {
-        public EnemySpawner(List<Vector3> spawnPoints, Frame parent)
+        public EnemySpawner(Frame parent, List<Transform> spawnPoints)
         {
             isRunning = false;
 
-            this.spawnPoints = spawnPoints;
+            this.spawnPoints = spawnPoints.Select(transform => transform.position)
+                .ToList();
             this.parent = parent;
         }
 
