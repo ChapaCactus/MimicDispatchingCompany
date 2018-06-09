@@ -651,7 +651,7 @@ GameObject:
   - component: {fileID: 1227336967}
   m_Layer: 8
   m_Name: Frame
-  m_TagString: Untagged
+  m_TagString: Frame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1439,7 +1439,7 @@ GameObject:
   - component: {fileID: 2029131584}
   m_Layer: 8
   m_Name: Frame (1)
-  m_TagString: Untagged
+  m_TagString: Frame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
