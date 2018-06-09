@@ -13,12 +13,17 @@ namespace CCG
         public enum FrameType
         {
             Battle,
+            Hotel,
         }
         #endregion
 
         #region properties
         private Mimic mimic { get; set; }
-        private IFrameState state { get; set; }
+
+        private List<FrameStateBase> state { get; set; }
+        private int currentStateIndex { get; set; }
+        private FrameStateBase currentState { get { return state[currentStateIndex]; } }
+
         private EnemySpawner enemySpawner { get; set; }
         #endregion
 
@@ -34,11 +39,15 @@ namespace CCG
 
             var vectorPoints = spawnPoints.Select(tf => tf.position).ToList();
             enemySpawner = new EnemySpawner(vectorPoints, this);
+
+            state = new List<FrameStateBase>();
+            state.Add(new FrameStateBattle());
+            state.Add(new FrameStateHotel());
         }
 
         private void Update()
         {
-            enemySpawner.Update();
+            currentState.OnUpdate(Time.deltaTime);
         }
         #endregion
 
