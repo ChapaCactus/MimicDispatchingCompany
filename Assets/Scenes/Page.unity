@@ -692,6 +692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a071b443e8eee48daa1ccebb67df170c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentStateType: 1
   spawnPoints:
   - {fileID: 1924803178}
 --- !u!212 &1227336966
@@ -1535,6 +1536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a071b443e8eee48daa1ccebb67df170c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentStateType: 0
   spawnPoints:
   - {fileID: 1222342181}
 --- !u!4 &2029131588

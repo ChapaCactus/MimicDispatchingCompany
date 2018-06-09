@@ -17,11 +17,15 @@ namespace CCG
         }
         #endregion
 
+        #region variables
+        [SerializeField]
+        private FrameType currentStateType;
+        #endregion
+
         #region properties
         private Mimic mimic { get; set; }
 
         private Dictionary<Frame.FrameType, FrameStateBase> states { get; set; }
-        private FrameType currentStateType { get; set; }
         private FrameStateBase currentState { get { return states[currentStateType]; } }
         #endregion
 
@@ -38,12 +42,9 @@ namespace CCG
             var vectorPoints = spawnPoints.Select(tf => tf.position).ToList();
 
             states = new Dictionary<FrameType, FrameStateBase>();
-            //states.Add(FrameType.Battle
-                       //, new FrameStateBattle(this, spawnPoints));
+            states.Add(FrameType.Battle
+                       , new FrameStateBattle(this, spawnPoints));
             states.Add(FrameType.Hotel, new FrameStateHotel());
-
-            // test
-            currentStateType = FrameType.Hotel;
         }
 
         private void Update()

@@ -24,12 +24,17 @@ namespace CCG
         /// </summary>
         public FrameStateBattle(Frame frame, List<Transform> spawnPoints)
         {
+            timer = new Timer();
+
             enemySpawner = new EnemySpawner(frame, spawnPoints);
         }
 
         protected override void OnInsertMimic()
         {
-            enemySpawner.Run();
+            StartTimer(3, true, () =>
+            {
+                enemySpawner.GenerateEnemy();
+            });
         }
         #endregion
 
