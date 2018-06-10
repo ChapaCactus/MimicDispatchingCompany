@@ -69,11 +69,14 @@ namespace CCG
         /// <summary>
         /// フレームに入ったとき
         /// </summary>
-        public void OnFrameIn()
+        public void OnFrameIn(Frame.MimicDir dir)
         {
             state = State.FrameIn;
 
             view.SetMaskInteraction(SpriteMaskInteraction.VisibleInsideMask);
+            view.SetDir(dir);
+
+            Invoke();
         }
 
         /// <summary>
@@ -83,7 +86,6 @@ namespace CCG
         {
             state = State.Invoked;
 
-            view.SetMaskInteraction(SpriteMaskInteraction.VisibleInsideMask);
             view.PlayIdleAnimation();
         }
 

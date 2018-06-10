@@ -15,11 +15,20 @@ namespace CCG
             Battle,
             Hotel,
         }
+
+        public enum MimicDir
+        {
+            Right,
+            Left,
+        }
         #endregion
 
         #region variables
         [SerializeField]
-        private FrameType currentStateType;
+        private FrameType currentStateType = FrameType.Battle;
+
+        [SerializeField]
+        private MimicDir mimicDir = MimicDir.Right;
 
         [SerializeField]
         private Transform mimicPos;
@@ -76,9 +85,8 @@ namespace CCG
 
             Debug.Log($"mimic name: {mimic.charaName}");
 
-            mimic.Invoke();
-
             currentState.InsertMimic(mimic);
+            mimic.OnFrameIn(mimicDir);
         }
         #endregion
 
