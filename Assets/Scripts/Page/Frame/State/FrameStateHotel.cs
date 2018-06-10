@@ -28,6 +28,7 @@ namespace CCG
 
         protected override void OnInsertMimic()
         {
+            mimic.view.PlaySleepAnimation();
             StartTimer(1f, true, () =>
             {
                 mimic.FullCure();

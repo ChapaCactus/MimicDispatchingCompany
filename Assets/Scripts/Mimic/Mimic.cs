@@ -38,9 +38,9 @@ namespace CCG
         public int defense { get { return data.defense.GetTotalDefense(); } }
 
         public State state { get; private set; }
+        public MimicView view { get; private set; }
 
         private CharacterData data { get; set; }
-        private MimicView view { get; set; }
 
         private QuickDrag drag { get; set; }
         #endregion

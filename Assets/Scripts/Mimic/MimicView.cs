@@ -16,6 +16,7 @@ namespace CCG
 
         #region properties
         private SpriteRenderer characterRenderer { get; set; }
+        private ParticleSystem sleepParticle { get; set; }
         #endregion
 
         #region public methods
@@ -40,6 +41,19 @@ namespace CCG
                              .SetRelative(true);
 
             return tweener;
+        }
+
+        public void PlaySleepAnimation()
+        {
+            if (sleepParticle == null)
+            {
+                var effectPrefab = Resources.Load("Prefabs/Effect/Zzz") as GameObject;
+                sleepParticle = GameObject.Instantiate(effectPrefab, characterRenderer.transform)
+                                          .GetComponent<ParticleSystem>();
+            }
+
+            sleepParticle.gameObject.transform.position = characterRenderer.transform.position;
+            sleepParticle.Play(true);
         }
         #endregion
     }
