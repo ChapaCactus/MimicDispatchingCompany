@@ -83,10 +83,17 @@ namespace CCG
             mimic.transform.position = mimicPos.position;
             mimic.transform.SetParent(transform);
 
-            Debug.Log($"mimic name: {mimic.charaName}");
-
             currentState.InsertMimic(mimic);
             mimic.OnFrameIn(mimicDir);
+
+            Debug.Log($"Insert Mimic {mimic.charaName}");
+        }
+
+        public void EjectMimic()
+        {
+            mimic = null;
+
+            Debug.Log($"Eject Mimic");
         }
         #endregion
 

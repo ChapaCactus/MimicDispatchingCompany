@@ -47,6 +47,7 @@ namespace CCG
         private CharacterData data { get; set; }
 
         private QuickDrag drag { get; set; }
+        private Tweener idleAnim { get; set; }
         #endregion
 
         #region unity callbacks
@@ -56,8 +57,6 @@ namespace CCG
             drag.onDragStart.AddListener(OnDragStart);
             drag.onDrag.AddListener(OnDrag);
             drag.onDragEnd.AddListener(OnDragEnd);
-
-            Setup(CharacterData.CreateDummyData());
         }
         #endregion
 
@@ -99,7 +98,7 @@ namespace CCG
         {
             state = State.Invoked;
 
-            view.PlayIdleAnimation();
+            idleAnim = view.PlayIdleAnimation();
         }
 
         /// <summary>
@@ -147,6 +146,12 @@ namespace CCG
 
         public void OnDragStart(Gesture gesture)
         {
+            // 移動用に、座標に関わるTweenを殺す
+            idleAnim?.Kill();
+
+            transform.SetParent(null);
+            view.SetMaskInteraction(SpriteMaskInteraction.None);
+
             Debug.Log($"OnDragStart instanceID: {GetInstanceID()}");
         }
 
