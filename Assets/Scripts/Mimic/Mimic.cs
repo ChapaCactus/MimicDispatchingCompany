@@ -21,6 +21,10 @@ namespace CCG
         }
         #endregion
 
+        #region constants
+        private const string PrefabPath = "Prefabs/Mimic/Mimic";
+        #endregion
+
         #region variables
         [SerializeField]
         private SpriteRenderer characterRenderer;
@@ -58,6 +62,15 @@ namespace CCG
         #endregion
 
         #region public methods
+        public static void Create(Action<Mimic> onCreate)
+        {
+            var prefab = Resources.Load(PrefabPath) as GameObject;
+            var go = Instantiate(prefab, null);
+            var mimic = go.GetComponent<Mimic>();
+
+            onCreate.SafeCall(mimic);
+        }
+
         public void Setup(CharacterData data)
         {
             this.data = data;
