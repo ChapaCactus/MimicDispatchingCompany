@@ -12,11 +12,11 @@ namespace CCG
         #region constants
         private List<float> CreateOffsets = new List<float>
         {
-            -300,
-            -150,
+            -2,
+            -1,
             0,
-            150,
-            300,
+            1,
+            2,
         };
         #endregion
 
