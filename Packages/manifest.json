@@ -1,4 +1,11 @@
 {
-	"dependencies": {
-	}
+
+"dependencies": {
+
+ "com.unity.2d.pixel-perfect": "1.0.0-preview"
+
+ },
+
+ "registry": "https://staging-packages.unity.com"
+
 }
