@@ -1360,7 +1360,7 @@ public static class DTGUIHelper {
     }
 
     public static GameObject DuplicateGameObject(GameObject gameObj, string baseName, int? optionalCountSuffix) {
-        var prefabRoot = PrefabUtility.GetPrefabParent(gameObj);
+        var prefabRoot = PrefabUtility.GetCorrespondingObjectFromSource(gameObj);
 
         GameObject dupe;
 
