@@ -28,7 +28,7 @@ namespace CCG
 
         public void SetMaskInteraction(SpriteMaskInteraction interaction)
         {
-            if(characterRenderer != null)
+            if (characterRenderer != null)
             {
                 characterRenderer.maskInteraction = interaction;
             }
@@ -36,9 +36,10 @@ namespace CCG
 
         public Tweener PlayIdleAnimation()
         {
-            var tweener = characterRenderer.transform.DOMoveY(1, 0.5f)
-                             .SetLoops(-1, LoopType.Yoyo)
-                             .SetRelative(true);
+            var tweener = characterRenderer.transform.DOMoveX(0.02f, 0.4f)
+                                           .SetLoops(-1, LoopType.Yoyo)
+                                           .SetEase(Ease.InOutExpo)
+                                           .SetRelative(true);
 
             return tweener;
         }
